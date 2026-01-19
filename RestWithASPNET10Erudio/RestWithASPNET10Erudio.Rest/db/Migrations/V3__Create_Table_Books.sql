@@ -1,0 +1,8 @@
+﻿CREATE TABLE public.books (
+    id BIGSERIAL PRIMARY KEY,
+    title VARCHAR(250) NOT NULL,
+    author VARCHAR(180) NOT NULL,
+    price NUMERIC(18,2) NOT NULL,
+    launch_date TIMESTAMP WITHOUT TIME ZONE NOT NULL
+);
+
