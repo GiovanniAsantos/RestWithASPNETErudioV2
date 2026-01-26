@@ -9,10 +9,18 @@ var builder = WebApplication.CreateBuilder(args);
 
 //Add services to the container
 
-builder.Services.AddControllers().AddContentNegotiation().AddJsonOptions(options =>
-{
-    options.JsonSerializerOptions.Converters.Add(new RestWithASPNET10Erudio.Rest.Utils.DateTimeConverter());
-});
+builder.Services
+    .AddControllers(options =>
+    {
+        options.RespectBrowserAcceptHeader = true;
+        options.ReturnHttpNotAcceptable = false; 
+    })
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(
+            new RestWithASPNET10Erudio.Rest.Utils.DateTimeConverter()
+        );
+    });
 
 builder.Services.AddEndpointsApiExplorer();
 
@@ -51,5 +59,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.UseSwaggerSpacification();
+
+app.useScalarConfiguration();
 
 app.Run();
