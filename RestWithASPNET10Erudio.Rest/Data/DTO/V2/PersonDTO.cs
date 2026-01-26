@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using RestWithASPNET10Erudio.JsonSerializers;
 using RestWithASPNET10Erudio.Rest.Utils;
 
 namespace RestWithASPNET10Erudio.Rest.Data.DTO.V2;
@@ -21,9 +22,10 @@ public class PersonDTO
     public string Address { get; init; }
     
     //[JsonPropertyOrder(6)]
+    //[JsonConverter(typeof(GenderSerializer))]
     public string Gender { get; init; }
     
     //[JsonPropertyOrder(2)]
-    [JsonConverter(typeof(DateSerializer))]
+    //[JsonConverter(typeof(DateSerializer))]
     public DateTime? BirthDay { get; init; }
 }

@@ -21,9 +21,4 @@
       <Folder Include="Controllers\" />
     </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\RestWithASPNET10Erudio.Rest.Test\RestWithASPNET10Erudio.Rest.Test.csproj" />
-      <ProjectReference Include="..\RestWithASPNET10Erudio.Test\RestWithASPNET10Erudio.Test.csproj" />
-    </ItemGroup>
-
 </Project>

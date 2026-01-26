@@ -1,23 +1,23 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
-namespace RestWithASPNET10Erudio.Rest.Utils;
-
-public class GenderSerializer : JsonConverter<String>
+namespace RestWithASPNET10Erudio.JsonSerializers
 {
-    
-    
-    public override void WriteJson(JsonWriter writer, string? value, JsonSerializer serializer)
+    public class GenderSerializer : JsonConverter<string>
     {
-        throw new NotImplementedException();
-    }
+        public override string Read(
+            ref Utf8JsonReader reader,
+            Type typeToConvert,
+            JsonSerializerOptions options)
+            => reader.GetString();
 
-    public override string? ReadJson(
-        JsonReader reader, 
-        Type typeToConvert, 
-        string? existingValue, 
-        bool hasExistingValue,
-        JsonSerializer serializer)
-    {
-        throw new NotImplementedException();
+        public override void Write(
+            Utf8JsonWriter writer,
+            string value,
+            JsonSerializerOptions options)
+        {
+            var formated = value == "Male" ? "M" : "F";
+            writer.WriteStringValue(formated);
+        }
     }
 }
