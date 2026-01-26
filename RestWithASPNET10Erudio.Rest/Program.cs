@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 //Add services to the container
 
-builder.Services.AddControllers().AddJsonOptions(options =>
+builder.Services.AddControllers().AddContentNegotiation().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.Converters.Add(new RestWithASPNET10Erudio.Rest.Utils.DateTimeConverter());
 });
