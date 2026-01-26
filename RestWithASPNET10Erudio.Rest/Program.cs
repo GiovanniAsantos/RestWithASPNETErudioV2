@@ -20,6 +20,8 @@ builder.Services.AddOpenAPIConfig();
 
 builder.Services.AddSwaggerConfig();
 
+builder.Services.AddRouteConfig();
+
 builder.Services.AddDatabaseConfiguration(builder.Configuration);
 
 builder.Services.AddEvolve(builder.Configuration, builder.Environment);
