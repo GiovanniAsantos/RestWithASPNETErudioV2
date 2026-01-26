@@ -14,6 +14,12 @@ builder.Services.AddControllers().AddContentNegotiation().AddJsonOptions(options
     options.JsonSerializerOptions.Converters.Add(new RestWithASPNET10Erudio.Rest.Utils.DateTimeConverter());
 });
 
+builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddOpenAPIConfig();
+
+builder.Services.AddSwaggerConfig();
+
 builder.Services.AddDatabaseConfiguration(builder.Configuration);
 
 builder.Services.AddEvolve(builder.Configuration, builder.Environment);
@@ -41,5 +47,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseSwaggerSpacification();
 
 app.Run();

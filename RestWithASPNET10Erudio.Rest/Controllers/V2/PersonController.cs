@@ -18,6 +18,9 @@ public class PersonController : ControllerBase
     }
   
     [HttpPost]
+    [ProducesResponseType(200, Type = typeof(PersonDTO))]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(401)]
     public IActionResult CreatePerson([FromBody] PersonDTO person)
     {
         _logger.LogInformation("Creating new Person: {firstName}", person.FirstName);
